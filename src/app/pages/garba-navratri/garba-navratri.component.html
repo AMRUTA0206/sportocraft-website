@@ -1,53 +1,184 @@
-<section class="section page-hero">
-  <div class="container">
-    <div class="eyebrow">Garba / Navratri</div>
+<section class="hero-section">
+  <video
+    class="hero-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    poster="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80"
+  >
+    <source
+      src="https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerEscapes.mp4"
+      type="video/mp4"
+    />
+  </video>
+  <div class="hero-overlay"></div>
+
+  <div class="container hero-content">
+    <div class="eyebrow">GARBA / NAVRATRI</div>
     <h1>Corporate Garba Event Management</h1>
     <p>
-      Create a memorable Navratri experience for your employees with complete décor, entertainment, production and event management.
+      Create a memorable Navratri experience for your employees with complete décor, entertainment, production and event
+      management.
     </p>
-    <div class="hero-pills">
+    <div class="hero-highlights">
       <span>Office campus or external venue</span>
-      <span>Décor, DJ, dhol &amp; performers</span>
+      <span>Décor, DJ, dhol & performers</span>
       <span>One team, end to end</span>
     </div>
+    <div class="cta-row">
+      <a class="site-btn primary" routerLink="/contact">Plan Your Garba</a>
+      <a class="site-btn secondary" routerLink="/our-work">View Our Work</a>
+    </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section services-section">
   <div class="container">
+    <div class="section-header text-center">
+      <div class="eyebrow">What We Provide</div>
+      <h2>Complete Garba Services</h2>
+      <p>Every element of your corporate Garba night, managed by one team.</p>
+    </div>
+
     <div class="services-grid">
-      <div class="service-block">Garba Décor</div>
-      <div class="service-block">DJ &amp; Music</div>
-      <div class="service-block">Professional Sound</div>
-      <div class="service-block">Lighting</div>
-      <div class="service-block">Dhol Artists</div>
-      <div class="service-block">Garba Performers</div>
-      <div class="service-block">Stage Setup</div>
-      <div class="service-block">Corporate Branding</div>
-      <div class="service-block">Photography &amp; Videography</div>
-      <div class="service-block">Food Coordination</div>
-      <div class="service-block">Guest Management</div>
-      <div class="service-block">Complete Event Operations</div>
+      <div class="service-card" *ngFor="let service of services">
+        <div class="service-icon">{{ service.icon }}</div>
+        <h3>{{ service.title }}</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section decor-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="eyebrow">Décor & Production</div>
+      <h2>Premium Garba Décor & Setup</h2>
+      <p>From traditional to contemporary, we create a memorable visual and experiential environment.</p>
+    </div>
+
+    <div class="decor-visual">
+      <img
+        src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80"
+        alt="Professional Garba décor setup"
+        loading="lazy"
+        class="decor-image"
+      />
+    </div>
+
+    <div class="decor-features">
+      <div class="feature-item">
+        <span class="feature-icon">🎨</span>
+        <h4>Custom Décor Design</h4>
+        <p>Tailored to your brand colors, theme and office space</p>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🏪</span>
+        <h4>Stage & Seating Setup</h4>
+        <p>Professional stage, seating arrangements and guest flow design</p>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">💃</span>
+        <h4>Dance Floor</h4>
+        <p>Dedicated Garba dance floor with optimal spacing and safety</p>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🎉</span>
+        <h4>Themed Ambiance</h4>
+        <p>Lighting, props and décor elements creating festival atmosphere</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section entertainment-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="eyebrow">Entertainment</div>
+      <h2>Live Entertainment & Performers</h2>
+      <p>Professional performers and musicians creating authentic Garba celebration energy.</p>
+    </div>
+
+    <div class="entertainment-grid">
+      <div class="entertainment-card" *ngFor="let item of entertainmentItems">
+        <div class="ent-icon">{{ item.icon }}</div>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" *ngIf="galleryVideos.length > 0">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="eyebrow">See Us in Action</div>
+      <h2>Garba Event Video Gallery</h2>
+      <p>Highlights from corporate Garba and Navratri celebrations we have executed.</p>
+    </div>
+
+    <app-video-gallery [videos]="galleryVideos"></app-video-gallery>
+  </div>
+</section>
+
+<section class="section" *ngIf="galleryImages.length > 0">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="eyebrow">Event Portfolio</div>
+      <h2>Garba Photo Gallery</h2>
+      <p>From décor setup to celebrations, moments from events we\'ve created.</p>
+    </div>
+
+    <app-image-gallery [images]="galleryImages"></app-image-gallery>
+  </div>
+</section>
+
+<section class="section how-it-works-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="eyebrow">How It Works</div>
+      <h2>Six-Step Garba Planning & Execution</h2>
+    </div>
+
+    <div class="timeline-grid">
+      <div class="timeline-item" *ngFor="let step of howItWorksSteps">
+        <div class="step-badge">{{ step.number }}</div>
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section faq-section">
+  <div class="container faq-container">
+    <div class="section-header text-center">
+      <div class="eyebrow">FAQ</div>
+      <h2>Frequently Asked Questions</h2>
+      <p>Common questions about corporate Garba events and planning.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item" *ngFor="let item of faqItems">
+        <button class="faq-question" (click)="toggleFAQ(item)" [class.expanded]="item.expanded">
+          <span>{{ item.question }}</span>
+          <span class="faq-toggle">{{ item.expanded ? '−' : '+' }}</span>
+        </button>
+        <div class="faq-answer" *ngIf="item.expanded">
+          <p>{{ item.answer }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <h2>How It Works</h2>
-    <div class="timeline-list">
-      <div class="row"><span>01</span><p>Share Your Brief</p></div>
-      <div class="row"><span>02</span><p>Concept &amp; Budget</p></div>
-      <div class="row"><span>03</span><p>Venue &amp; Planning</p></div>
-      <div class="row"><span>04</span><p>Production</p></div>
-      <div class="row"><span>05</span><p>Garba Night</p></div>
-      <div class="row"><span>06</span><p>Photos &amp; Video</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <app-cta-banner title="Plan a premium Garba night for your team." buttonText="Get a Proposal" link="/contact"></app-cta-banner>
+    <app-cta-banner
+      title="Ready to plan your corporate Garba?"
+      buttonText="Get a Proposal"
+      link="/contact"
+    ></app-cta-banner>
   </div>
 </section>
