@@ -1,0 +1,97 @@
+<section class="section">
+  <div class="container contact-shell">
+    <div class="contact-copy">
+      <div class="eyebrow">Contact</div>
+      <h1>Get an Event Proposal</h1>
+      <p>Tell us what you're planning. Our corporate events team will help you structure the event, execution and budget.</p>
+
+      <div class="contact-list">
+        <div><strong>Phone:</strong> {{ phone }}</div>
+        <div><strong>Working hours:</strong> {{ workingHours }}</div>
+        <div><strong>Email:</strong> {{ email }}</div>
+        <div><strong>Address:</strong> {{ address }}</div>
+        <div><strong>WhatsApp:</strong> {{ whatsappNumber }}</div>
+      </div>
+
+      <div class="cta-stack">
+        <a class="site-btn primary" [href]="'tel:' + phone">Call Us</a>
+        <a class="site-btn secondary" [href]="'https://wa.me/' + whatsappNumber.replace(/[^0-9]/g, '') + '?text=' + encodeURIComponent(whatsappMessage)" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="contact-form" novalidate>
+      <div class="field">
+        <label for="name">Name *</label>
+        <input id="name" formControlName="name" type="text" />
+        <small *ngIf="f['name'].touched && f['name'].errors?.['required']">Name is required.</small>
+      </div>
+
+      <div class="field">
+        <label for="companyName">Company Name</label>
+        <input id="companyName" formControlName="companyName" type="text" />
+      </div>
+
+      <div class="field">
+        <label for="email">Official Email *</label>
+        <input id="email" formControlName="email" type="email" />
+        <small *ngIf="f['email'].touched && f['email'].errors?.['required']">Email is required.</small>
+        <small *ngIf="f['email'].touched && f['email'].errors?.['email']">Enter a valid email.</small>
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone Number *</label>
+        <input id="phone" formControlName="phone" type="tel" />
+        <small *ngIf="f['phone'].touched && f['phone'].errors?.['required']">Phone number is required.</small>
+        <small *ngIf="f['phone'].touched && f['phone'].errors?.['pattern']">Enter a valid phone number.</small>
+      </div>
+
+      <div class="field">
+        <label for="city">City</label>
+        <input id="city" formControlName="city" type="text" />
+      </div>
+
+      <div class="field">
+        <label for="eventType">Event Type *</label>
+        <select id="eventType" formControlName="eventType">
+          <option value="">Select</option>
+          <option>Corporate Sports Event</option>
+          <option>Employee Engagement</option>
+          <option>Corporate Garba / Navratri</option>
+          <option>Corporate Celebration</option>
+          <option>Event Production</option>
+          <option>Other</option>
+        </select>
+        <small *ngIf="f['eventType'].touched && f['eventType'].errors?.['required']">Event type is required.</small>
+      </div>
+
+      <div class="field">
+        <label for="participants">Number of Participants</label>
+        <input id="participants" formControlName="participants" type="text" />
+      </div>
+
+      <div class="field">
+        <label for="eventDate">Event Date</label>
+        <input id="eventDate" formControlName="eventDate" type="date" />
+      </div>
+
+      <div class="field">
+        <label for="budget">Budget</label>
+        <input id="budget" formControlName="budget" type="text" />
+      </div>
+
+      <div class="field">
+        <label for="message">Message *</label>
+        <textarea id="message" formControlName="message" rows="4"></textarea>
+        <small *ngIf="f['message'].touched && f['message'].errors?.['required']">Message is required.</small>
+      </div>
+
+      <div class="form-state" *ngIf="errorMessage">
+        <p class="error">{{ errorMessage }}</p>
+      </div>
+
+      <button class="site-btn primary full" type="submit" [disabled]="isSubmitting">
+        {{ isSubmitting ? 'Sending...' : 'Submit Enquiry' }}
+      </button>
+    </form>
+  </div>
+</section>

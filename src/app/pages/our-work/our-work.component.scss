@@ -1,0 +1,45 @@
+.page-hero h1 {
+  font-size: clamp(2.5rem, 4vw, 4.2rem);
+  margin-bottom: 1rem;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.portfolio-item {
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.portfolio-item.tall {
+  min-height: 280px;
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.case-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.02);
+  padding: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .portfolio-grid,
+  .case-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,21 @@
+.cta-banner {
+  padding-top: 0;
+}
+
+.cta-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(241,90,41,0.12), rgba(255,255,255,0.02));
+}
+
+@media (max-width: 640px) {
+  .cta-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

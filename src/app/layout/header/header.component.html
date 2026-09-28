@@ -1,0 +1,44 @@
+<header class="site-header" [class.scrolled]="isScrolled">
+  <div class="container header-inner">
+    <a routerLink="/" class="brand" aria-label="Go to homepage">
+      <span class="brand-mark">S</span>
+      <span class="brand-text">{{ companyName }}</span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a
+        *ngFor="let item of navItems"
+        [routerLink]="item.path"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+        (click)="closeMenu()"
+      >
+        {{ item.label }}
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="site-btn primary small" routerLink="/contact">Get a Proposal</a>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        (click)="toggleMenu()"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" *ngIf="isMobileMenuOpen" aria-label="Mobile menu">
+    <nav>
+      <a *ngFor="let item of navItems" [routerLink]="item.path" (click)="closeMenu()">
+        {{ item.label }}
+      </a>
+      <a class="site-btn primary full" routerLink="/contact" (click)="closeMenu()">Get a Proposal</a>
+    </nav>
+  </div>
+</header>

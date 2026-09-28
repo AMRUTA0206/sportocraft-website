@@ -1,0 +1,30 @@
+.page-hero h1 {
+  font-size: clamp(2.5rem, 4vw, 4.3rem);
+  margin-bottom: 1rem;
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.case-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.02);
+  padding: 1.5rem;
+}
+
+.case-card ul {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+  color: var(--muted);
+}
+
+@media (max-width: 768px) {
+  .case-grid { grid-template-columns: 1fr; }
+}
