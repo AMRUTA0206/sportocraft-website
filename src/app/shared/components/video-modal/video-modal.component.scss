@@ -1,0 +1,74 @@
+.video-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 2001;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.video-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 88vw;
+  max-height: 85vh;
+}
+
+.modal-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  background: #000;
+}
+
+.modal-close {
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+  z-index: 1;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.video-details {
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.video-details h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.video-details p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .video-modal-content {
+    max-width: 95vw;
+    max-height: 65vh;
+  }
+
+  .modal-close {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}

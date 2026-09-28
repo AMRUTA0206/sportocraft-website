@@ -1,0 +1,18 @@
+<div class="video-card">
+  <div class="video-poster">
+    <img [src]="video.poster" [alt]="video.title" loading="lazy" class="poster-image" />
+    <button class="play-button" (click)="handlePlay()" aria-label="Play video">
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+        <circle cx="28" cy="28" r="27" fill="currentColor" />
+        <path d="M22 18L22 38L40 28L22 18Z" fill="white" />
+      </svg>
+    </button>
+    <div class="video-duration" *ngIf="video.duration">
+      {{ video.duration }}
+    </div>
+  </div>
+  <div class="video-info">
+    <h3>{{ video.title }}</h3>
+    <p>{{ video.description }}</p>
+  </div>
+</div>

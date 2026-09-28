@@ -1,0 +1,34 @@
+<div class="gallery-container">
+  <div class="gallery-filters">
+    <button
+      *ngFor="let cat of categories"
+      [class.active]="selectedCategory === cat.id"
+      (click)="selectCategory(cat)"
+      class="filter-btn"
+    >
+      {{ cat.label }}
+    </button>
+  </div>
+
+  <div class="gallery-grid">
+    <figure
+      *ngFor="let image of filteredImages; let i = index"
+      class="gallery-item"
+      (click)="openLightbox(i)"
+      role="button"
+      tabindex="0"
+    >
+      <img
+        [src]="image.thumbnail"
+        [alt]="image.alt"
+        loading="lazy"
+        class="gallery-image"
+      />
+      <div class="gallery-overlay">
+        <span class="view-text">View</span>
+      </div>
+    </figure>
+  </div>
+</div>
+
+<app-image-lightbox [images]="images"></app-image-lightbox>

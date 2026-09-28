@@ -1,0 +1,26 @@
+<div class="video-gallery-container">
+  <div class="gallery-filters">
+    <button
+      *ngFor="let cat of categories"
+      [class.active]="selectedCategory === cat.id"
+      (click)="selectCategory(cat)"
+      class="filter-btn"
+    >
+      {{ cat.label }}
+    </button>
+  </div>
+
+  <div class="video-grid">
+    <app-video-card
+      *ngFor="let video of filteredVideos"
+      [video]="video"
+      [onPlay]="() => playVideo(video)"
+    ></app-video-card>
+  </div>
+
+  <div *ngIf="filteredVideos.length === 0" class="empty-state">
+    <p>No videos in this category.</p>
+  </div>
+</div>
+
+<app-video-modal [video]="selectedVideo" [isOpen]="isVideoModalOpen" (close)="closeModal()"></app-video-modal>
