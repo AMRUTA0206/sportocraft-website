@@ -1,68 +1,206 @@
-<section class="section page-hero">
-  <div class="container">
-    <div class="eyebrow">Corporate sports</div>
+<section class="hero-section">
+  <video
+    class="hero-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    poster="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1200&q=80"
+  >
+    <source
+      src="https://commondatastorage.googleapis.com/gtv-videos-library/sample/BigBuckBunny.mp4"
+      type="video/mp4"
+    />
+  </video>
+  <div class="hero-overlay"></div>
+
+  <div class="container hero-content">
+    <div class="eyebrow">CORPORATE SPORTS</div>
     <h1>Corporate Sports Event Management</h1>
     <p>
-      From venue and registrations to fixtures, referees, branding, production and awards — one team manages your complete corporate tournament.
+      From venue and registrations to fixtures, referees, branding, production and awards — one team manages your complete
+      corporate tournament.
     </p>
-    <div class="hero-pills">
+    <div class="hero-highlights">
       <span>Single point of contact</span>
-      <span>Tournaments, leagues &amp; sports days</span>
+      <span>Tournaments, leagues & sports days</span>
       <span>Proposal with budget options</span>
     </div>
+    <div class="cta-row">
+      <a class="site-btn primary" routerLink="/contact">Plan Your Event</a>
+      <a class="site-btn secondary" routerLink="/our-work">View Our Work</a>
+    </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section sports-showcase">
   <div class="container">
+    <div class="section-header text-center">
+      <div class="eyebrow">Sports We Manage</div>
+      <h2>Sports & Tournament Formats</h2>
+      <p>End-to-end management across multiple sports and competitive formats.</p>
+    </div>
+
     <div class="sports-grid">
-      <div class="sport-item">Cricket</div>
-      <div class="sport-item">Badminton</div>
-      <div class="sport-item">Football</div>
-      <div class="sport-item">Pickleball</div>
-      <div class="sport-item">Table Tennis</div>
-      <div class="sport-item">Chess</div>
-      <div class="sport-item">Carrom</div>
-      <div class="sport-item">Athletics</div>
-      <div class="sport-item highlight">Multi-Sport Tournaments</div>
+      <div class="sport-card" *ngFor="let sport of sports">
+        <div class="sport-icon">{{ sport.icon }}</div>
+        <h3>{{ sport.name }}</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section scope-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="eyebrow">Complete Scope</div>
+      <h2>One Team. One Accountability.</h2>
+      <p>
+        Your HR or admin team doesn't coordinate ten vendors. One Sportocraft team owns every moving part.
+      </p>
+    </div>
+
+    <div class="scope-grid">
+      <div class="scope-card">
+        <div class="scope-icon">📋</div>
+        <h3>One Vendor</h3>
+        <p>Single contract, single invoice, single point of accountability for your corporate tournament.</p>
+      </div>
+      <div class="scope-card">
+        <div class="scope-icon">📝</div>
+        <h3>One Contract</h3>
+        <p>Clear terms, deliverables and responsibilities. No surprises during execution.</p>
+      </div>
+      <div class="scope-card">
+        <div class="scope-icon">💳</div>
+        <h3>One Invoice</h3>
+        <p>Transparent line-item billing with clear approvals and documentation for your finance team.</p>
+      </div>
+      <div class="scope-card">
+        <div class="scope-icon">👤</div>
+        <h3>One Point of Contact</h3>
+        <p>A dedicated owner for your event. You call one person. They coordinate everything.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section execution-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="eyebrow">How We Execute</div>
+      <h2>Six-Step Tournament Delivery Process</h2>
+    </div>
+
+    <div class="execution-grid">
+      <div class="exec-step" *ngFor="let step of executionSteps">
+        <div class="step-number">{{ step.number }}</div>
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" *ngIf="galleryVideos.length > 0">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="eyebrow">See Us in Action</div>
+      <h2>Sports Events Video Gallery</h2>
+      <p>Highlights from corporate sports tournaments we have managed and executed.</p>
+    </div>
+
+    <app-video-gallery [videos]="galleryVideos"></app-video-gallery>
+  </div>
+</section>
+
+<section class="section" *ngIf="galleryImages.length > 0">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="eyebrow">Event Portfolio</div>
+      <h2>Sports Events Photo Gallery</h2>
+    </div>
+
+    <app-image-gallery [images]="galleryImages"></app-image-gallery>
+  </div>
+</section>
+
+<section class="section case-studies-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="eyebrow">Case Studies</div>
+      <h2>Corporate Sports Events We\'ve Delivered</h2>
+      <p>Real events, real execution, real outcomes.</p>
+    </div>
+
+    <div class="case-grid">
+      <article class="case-card">
+        <h3>[CASE STUDY NAME]</h3>
+        <ul>
+          <li><strong>Sport:</strong> [SPORT TYPE]</li>
+          <li><strong>Participants:</strong> [PARTICIPANT COUNT]</li>
+          <li><strong>Location:</strong> [CITY]</li>
+          <li><strong>Format:</strong> [TOURNAMENT FORMAT]</li>
+          <li><strong>Scope:</strong> [SCOPE DETAILS]</li>
+          <li><strong>Outcome:</strong> [CASE STUDY INFORMATION TO BE ADDED]</li>
+        </ul>
+      </article>
+
+      <article class="case-card">
+        <h3>[CASE STUDY NAME]</h3>
+        <ul>
+          <li><strong>Sport:</strong> [SPORT TYPE]</li>
+          <li><strong>Participants:</strong> [PARTICIPANT COUNT]</li>
+          <li><strong>Location:</strong> [CITY]</li>
+          <li><strong>Format:</strong> [TOURNAMENT FORMAT]</li>
+          <li><strong>Scope:</strong> [SCOPE DETAILS]</li>
+          <li><strong>Outcome:</strong> [CASE STUDY INFORMATION TO BE ADDED]</li>
+        </ul>
+      </article>
+
+      <article class="case-card">
+        <h3>[CASE STUDY NAME]</h3>
+        <ul>
+          <li><strong>Sport:</strong> [SPORT TYPE]</li>
+          <li><strong>Participants:</strong> [PARTICIPANT COUNT]</li>
+          <li><strong>Location:</strong> [CITY]</li>
+          <li><strong>Format:</strong> [TOURNAMENT FORMAT]</li>
+          <li><strong>Scope:</strong> [SCOPE DETAILS]</li>
+          <li><strong>Outcome:</strong> [CASE STUDY INFORMATION TO BE ADDED]</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section faq-section">
+  <div class="container faq-container">
+    <div class="section-header text-center">
+      <div class="eyebrow">FAQ</div>
+      <h2>Frequently Asked Questions</h2>
+      <p>Common questions about corporate sports event management and execution.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item" *ngFor="let item of faqItems">
+        <button class="faq-question" (click)="toggleFAQ(item)" [class.expanded]="item.expanded">
+          <span>{{ item.question }}</span>
+          <span class="faq-toggle">{{ item.expanded ? '−' : '+' }}</span>
+        </button>
+        <div class="faq-answer" *ngIf="item.expanded">
+          <p>{{ item.answer }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <h2>Complete Scope</h2>
-    <div class="list-grid">
-      <ul>
-        <li>Venue and vendor coordination</li>
-        <li>Registrations and communication</li>
-        <li>Fixtures and schedule management</li>
-        <li>Referees and technical support</li>
-      </ul>
-      <ul>
-        <li>Branding and production</li>
-        <li>Equipment and trophy logistics</li>
-        <li>On-ground operations</li>
-        <li>Final reporting and recap</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <h2>How We Execute</h2>
-    <div class="timeline-list">
-      <div class="row"><span>01</span><p>Planning consultation and tournament structure</p></div>
-      <div class="row"><span>02</span><p>Budget and venue shortlist with fit-to-goals strategy</p></div>
-      <div class="row"><span>03</span><p>Production, fixtures, registrations and staff deployment</p></div>
-      <div class="row"><span>04</span><p>High-quality event execution and closure reporting</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <app-cta-banner title="Need a tournament that runs smoothly?" buttonText="Get a Proposal" link="/contact"></app-cta-banner>
+    <app-cta-banner
+      title="Ready to plan your corporate sports event?"
+      buttonText="Get a Proposal"
+      link="/contact"
+    ></app-cta-banner>
   </div>
 </section>
